@@ -8,7 +8,7 @@ public class Mist extends BGElement {
     
     private static final int SPRITE_COUNT = 3;
     private static final int SPEED = 8;
-    public final static Mist MIST = new Mist();
+    protected final static Mist MIST = new Mist();
     
     private Mist() {
         super(0, 0, 0, SPEED, ObjectsController.MIST_COUNT);

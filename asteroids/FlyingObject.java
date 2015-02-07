@@ -62,9 +62,10 @@ public abstract class FlyingObject {
     public boolean checkCollision(FlyingObject ufo) {
         double distanceSq = (posX - ufo.getPosX()) * (posX - ufo.getPosX()) +
                             (posY - ufo.getPosY()) * (posY - ufo.getPosY());
-                
-        if ((int)distanceSq <= ((radius + ufo.getRadius()) * (radius + ufo.getRadius())) && 
-                                !collisions.contains(ufo.getNumber())) {
+        //As asteroids and the ship are not perfectly round, I use /2 here, 
+        //so they could overlap and make all the game look a bit nicer.
+        if ((int)distanceSq <= ((radius + ufo.getRadius()) * (radius + ufo.getRadius()) / 2) 
+                                && !collisions.contains(ufo.getNumber())) {
             addCollision(ufo);
             ufo.addCollision(this);
             return true;

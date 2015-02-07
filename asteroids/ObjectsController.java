@@ -10,21 +10,21 @@ import java.util.ArrayList;
  */
 public class ObjectsController {
     
-    public static final int STARS_COUNT = 3;
-    public static final int MIST_COUNT = 3;
-    public static final int ASTEROID_COUNT = 8;
-    public static final String ASTEROID_NAME = "asteroid";
-    public static final String SHIP_NAME = "ship";
-    public static final String ROCKET_NAME = "rocket";
-    public static final String EXPLOSION_NAME = "explosion";
-    public static final String STARS_NAME = "stars";
-    public static final String MIST_NAME = "mist";
+    protected static final int STARS_COUNT = 3;
+    protected static final int MIST_COUNT = 3;
+    protected static final int ASTEROID_COUNT = 8;
+    protected static final String ASTEROID_NAME = "asteroid";
+    protected static final String SHIP_NAME = "ship";
+    protected static final String ROCKET_NAME = "rocket";
+    protected static final String EXPLOSION_NAME = "explosion";
+    protected static final String STARS_NAME = "stars";
+    protected static final String MIST_NAME = "mist";
     
-    public boolean gameOver = false;
-    public ArrayList<Asteroid> asteroids;
-    public ArrayList<Explosion> explosions;
-    public ArrayList<Rocket> rockets;
-    public Ship ship;
+    protected boolean gameOver = false;
+    protected ArrayList<Asteroid> asteroids;
+    protected ArrayList<Explosion> explosions;
+    protected ArrayList<Rocket> rockets;
+    protected Ship ship;
     
      //Class is a Singleton, created at the beginning.
     public final static ObjectsController POOL = new ObjectsController();
@@ -78,6 +78,11 @@ public class ObjectsController {
                 }
             }
             asteroids.get(i).move(GamePanel.PANEL.acceleration);
+            //If asteroid flies off the screen, it's being initiated with a new settings
+            if(asteroids.get(i).offScreen()) {
+                asteroids.get(i).init();
+                
+            }
         }
     }
     

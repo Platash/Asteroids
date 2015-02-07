@@ -13,7 +13,7 @@ public class Ship extends FlyingObject{
     
     private static final int SPRITE_SIZE = 128;
     private static final int SPRITE_COUNT = 1;
-    public static final int MAX_VELOCITY = 6;
+    protected static final int MAX_VELOCITY = 6;
     private static final int VELOCITY = 3;
     
     public Ship(int num) {
@@ -95,6 +95,7 @@ public class Ship extends FlyingObject{
         
     }
     
+    @Override
     public void draw(Graphics2D g2, double interpolation) {
         if(alive) {
             int x = (int)((posX - posXPrev) * interpolation + posXPrev);

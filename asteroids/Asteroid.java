@@ -86,7 +86,7 @@ public class Asteroid extends FlyingObject{
      * So that when asteroid goes off the screen, we just reusing it,
      * not creating a new object/thread
      */
-    private void init() {
+    public void init() {
         this.setAlive(true);
         this.radius = initRadius();
         this.mass = this.radius/10;
@@ -198,14 +198,9 @@ public class Asteroid extends FlyingObject{
     public void move(int acceleration) {
         posYPrev = posY;
         posXPrev = posX;
-        //If asteroid flies off the screen, it's being initiated with a new settings
-        if(posX < - radius || posX > Asteroids.ASTEROIDS.WIN_SIZE_X + radius ||
-            posY < - radius || posY > Asteroids.ASTEROIDS.WIN_SIZE_Y + radius) {
-            init();
-        } else {
-            posX += velX;
-            posY += velY + acceleration;
-        }
+        posX += velX;
+        posY += velY + acceleration;
+        
     }
     
     /**
@@ -261,6 +256,14 @@ public class Asteroid extends FlyingObject{
      */
     private int getRandomInt(int min, int max) {
         return RANDOM.nextInt(max - min) + min;
+    }
+    
+    public boolean offScreen() {
+        if(posX < - radius || posX > Asteroids.ASTEROIDS.WIN_SIZE_X + radius ||
+            posY < - radius || posY > Asteroids.ASTEROIDS.WIN_SIZE_Y + radius) {
+            return true;
+        }
+        return false;
     }
     
 }

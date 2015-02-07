@@ -11,13 +11,13 @@ import javax.imageio.ImageIO;
  * Graphics are stored as final BufferedImage.
  */
 public class Graphics {
-    public static final BufferedImage[] STARS  = new BufferedImage[ObjectsController.STARS_COUNT];
-    public static final BufferedImage[] MISTS = new BufferedImage[ObjectsController.MIST_COUNT];;
-    public static final BufferedImage ASTEROIDS;
-    public static final BufferedImage EXPLOSIONS;
-    public static final BufferedImage SHIPS;
-    public static final BufferedImage ROCKETS;
-    public static final BufferedImage GAME_OVER;
+    protected static final BufferedImage[] STARS  = new BufferedImage[ObjectsController.STARS_COUNT];
+    protected static final BufferedImage[] MISTS = new BufferedImage[ObjectsController.MIST_COUNT];;
+    protected static final BufferedImage ASTEROIDS;
+    protected static final BufferedImage EXPLOSIONS;
+    protected static final BufferedImage SHIPS;
+    protected static final BufferedImage ROCKETS;
+    protected static final BufferedImage GAME_OVER;
     //Static relative path to graphics
     private static final String path = "graphics/";
     
