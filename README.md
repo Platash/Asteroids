@@ -1,2 +1,2 @@
 # Asteroids
-An Asteroids Java game
+Asteroids Java game
